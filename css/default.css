@@ -5,10 +5,18 @@ html {
 body {
   font-size: 1.6rem;
   color: #000;
+  font-family: -apple-system,BlinkMacSystemFont,Arial,sans-serif;
 }
 
 header {
   border-bottom: 0.2rem solid #000;
+}
+
+code {
+    background-color: #eee;
+    border-radius: 3px;
+    font-family: courier, monospace;
+    padding: 0 3px;
 }
 
 nav {
@@ -111,7 +119,7 @@ article .header {
 
 @media (min-width: 640px) {
   body {
-    width: 60rem;
+    width: 70rem;
     margin: 0 auto;
     padding: 0;
   }
