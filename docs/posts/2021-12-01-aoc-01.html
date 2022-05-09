@@ -1,11 +1,15 @@
-<!doctype html>
-<html lang="en">
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
     <head>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
         <title>Dreary Blog - Advent Of Code in Haskell, Day 01</title>
-        <link rel="stylesheet" href="../css/default.css" />
+        <link rel="stylesheet" type="text/css" href="../css/default.css" />
+        <link rel="stylesheet" type="text/css" href="../css/syntax.css" />
     </head>
     <body>
         <header>
@@ -36,7 +40,13 @@
 <p>Чтобы быть более уверенными в успешности спуска, мы хотим знать как быстро меняется глубина впереди нас. Количество раз когда следующая считанная глубина была больше, чем предыдущая могло быть дать нам полезную информацию об этом.</p>
 <p><img style="text-align: center" src="../images/aoc-2021-day-01/03.png" /></p>
 <p>Традиционно первый день является неким “Hello world” всего календаря, поэтому нам не составит решить эту проблему. Каждый день я буду писать две функции <code>part1</code> и <code>part2</code>, которые должны решать первую и вторую часть задачи соответственно.</p>
-<p><img style="text-align: center" src="../images/aoc-2021-day-01/04.png" /></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ot">part1 ::</span> <span class="dt">String</span> <span class="ot">-&gt;</span> <span class="dt">Int</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>part1 <span class="ot">=</span> numberOfIncreases <span class="op">.</span> <span class="fu">map</span> <span class="fu">read</span> <span class="op">.</span> <span class="fu">lines</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">where</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="ot">    numberOfIncreases ::</span> [<span class="dt">Int</span>] <span class="ot">-&gt;</span> <span class="dt">Int</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    numberOfIncreases xs <span class="op">|</span> <span class="fu">length</span> xs <span class="op">&lt;</span> <span class="dv">2</span> <span class="ot">=</span> <span class="dv">0</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>                         <span class="op">|</span> <span class="fu">head</span> xs <span class="op">&lt;</span> <span class="fu">head</span> (<span class="fu">tail</span> xs) <span class="ot">=</span> <span class="dv">1</span> <span class="op">+</span> numberOfIncreases (<span class="fu">tail</span> xs)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>                         <span class="op">|</span> <span class="fu">otherwise</span> <span class="ot">=</span> numberOfIncreases (<span class="fu">tail</span> xs)</span></code></pre></div>
 <p>Функция <code>numberOfIncreases</code> подсчитывает количество увеличений во входном списке. Она разбирает 3 случая:</p>
 <ul>
 <li><code>length xs &lt; 2</code> – входной массив слишком мал, чтобы сравнить два элемента, поэтому нужно вернуть 0</li>
@@ -49,7 +59,13 @@
 <p>Во второй части теперь нужно рассматривать серию из трех элементов как один элемент и считать разницу между их суммами.</p>
 <p><img style="text-align: center" src="../images/aoc-2021-day-01/08.png" /></p>
 <p>Мы легко можем адаптировать решение первой задачи для второй. Вместо одного элемента мы будем брать <code>take 3</code> элементов и суммировать их с помощью <code>sum</code>. Вся остальная логика остается похожей.</p>
-<p><img style="text-align: center" src="../images/aoc-2021-day-01/06.png" /></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ot">part2 ::</span> <span class="dt">String</span> <span class="ot">-&gt;</span> <span class="dt">Int</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>part2 <span class="ot">=</span> numberOfIncreases <span class="op">.</span> <span class="fu">map</span> <span class="fu">read</span> <span class="op">.</span><span class="fu">lines</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">where</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="ot">    numberOfIncreases ::</span> [<span class="dt">Int</span>] <span class="ot">-&gt;</span> <span class="dt">Int</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    numberOfIncreases xs <span class="op">|</span> <span class="fu">length</span> xs <span class="op">&lt;</span> <span class="dv">4</span> <span class="ot">=</span> <span class="dv">0</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>                         <span class="op">|</span> <span class="fu">sum</span> (<span class="fu">take</span> <span class="dv">3</span> xs) <span class="op">&lt;</span> <span class="fu">sum</span> (<span class="fu">take</span> <span class="dv">3</span> <span class="op">$</span> <span class="fu">tail</span> xs) <span class="ot">=</span> <span class="dv">1</span> <span class="op">+</span> numberOfIncreases (<span class="fu">tail</span> xs)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>                         <span class="op">|</span> <span class="fu">otherwise</span> <span class="ot">=</span> numberOfIncreases (<span class="fu">tail</span> xs)</span></code></pre></div>
 <p>Отправляем на проверку и получаем заслуженную вторую звезду.</p>
 <p><img style="text-align: center" src="../images/aoc-2021-day-01/07.png" /></p>
 <p>Полный код решения это задачи можно найти у меня в <a href="https://github.com/DrearyLisper/aoc-2021">GitHub</a>, а теперь время отпраздновать победу над первой задачей (не самой сложной, но все же).</p>
