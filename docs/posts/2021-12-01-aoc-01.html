@@ -67,13 +67,13 @@
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    numberOfIncreases xs <span class="op">|</span> <span class="fu">length</span> xs <span class="op">&lt;</span> <span class="dv">2</span> <span class="ot">=</span> <span class="dv">0</span></span>
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>                         <span class="op">|</span> <span class="fu">head</span> xs <span class="op">&lt;</span> <span class="fu">head</span> (<span class="fu">tail</span> xs) <span class="ot">=</span> <span class="dv">1</span> <span class="op">+</span> numberOfIncreases (<span class="fu">tail</span> xs)</span>
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>                         <span class="op">|</span> <span class="fu">otherwise</span> <span class="ot">=</span> numberOfIncreases (<span class="fu">tail</span> xs)</span></code></pre></div>
-<p>Функция <code>numberOfIncreases</code> подсчитывает количество увеличений во входном списке. Она разбирает 3 случая:</p>
+<p>Функция <code class="sourceCode haskell">numberOfIncreases</code> подсчитывает количество увеличений во входном списке. Она разбирает 3 случая:</p>
 <ul>
-<li><code>length xs &lt; 2</code> – входной массив слишком мал, чтобы сравнить два элемента, поэтому нужно вернуть 0</li>
-<li><code>head xs &lt; head (tail xs)</code> – первый элемент меньше чем второй элемент, добавляем 1 к результату и рекурсивно проверяем хвост списка</li>
-<li><code>otherwise</code> – пропускаем первый элемент без увеличения результата</li>
+<li><code class="sourceCode haskell"><span class="fu">length</span> xs <span class="op">&lt;</span> <span class="dv">2</span></code> – входной массив слишком мал, чтобы сравнить два элемента, поэтому нужно вернуть 0</li>
+<li><code class="sourceCode haskell"><span class="fu">head</span> xs <span class="op">&lt;</span> <span class="fu">head</span> (<span class="fu">tail</span> xs)</code> – первый элемент меньше чем второй элемент, добавляем 1 к результату и рекурсивно проверяем хвост списка</li>
+<li><code class="sourceCode haskell"><span class="fu">otherwise</span></code> – пропускаем первый элемент без увеличения результата</li>
 </ul>
-<p>Функция <code>part1</code> разбивает входной файл на строчки (<code>lines</code>), конвертирует их в числа (<code>read</code>) и передает на вход <code>numberOfIncreases</code>. Рассчитываем результат отправляем и получаем первую звезду за сегодня!</p>
+<p>Функция <code class="sourceCode haskell">part1</code> разбивает входной файл на строчки с помощью функции <code class="sourceCode haskell"><span class="fu">lines</span></code>, конвертирует их в числа через вызов <code class="sourceCode haskell"><span class="fu">read</span></code> и передает все на вход <code class="sourceCode haskell">numberOfIncreases</code>. Рассчитываем результат отправляем и получаем первую звезду за сегодня!</p>
 <p><img style="text-align: center" src="../images/aoc-2021-day-01/05.png" /></p>
 <p>После решения первой задаче в Advent Of Code открывается вторая, которая обычно основана на первой, на при этом должна быть чуть сложней.</p>
 <p>Во второй части теперь нужно рассматривать серию из трех элементов как один элемент и считать разницу между их суммами.</p>
@@ -87,7 +87,7 @@ E: 647 (increased)
 F: 716 (increased)
 G: 769 (increased)
 H: 792 (increased)</code></pre>
-<p>Мы легко можем адаптировать решение первой задачи для второй. Вместо одного элемента мы будем брать <code>take 3</code> элементов и суммировать их с помощью <code>sum</code>. Вся остальная логика остается похожей.</p>
+<p>Мы легко можем адаптировать решение первой задачи для второй. Вместо одного элемента мы будем брать <code class="sourceCode haskell"><span class="fu">take</span> <span class="dv">3</span></code> элементов и суммировать их с помощью <code class="sourceCode haskell"><span class="fu">sum</span></code>. Вся остальная логика остается похожей.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ot">part2 ::</span> <span class="dt">String</span> <span class="ot">-&gt;</span> <span class="dt">Int</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>part2 <span class="ot">=</span> numberOfIncreases <span class="op">.</span> <span class="fu">map</span> <span class="fu">read</span> <span class="op">.</span><span class="fu">lines</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">where</span></span>
