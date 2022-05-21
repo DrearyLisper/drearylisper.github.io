@@ -1,8 +1,18 @@
 code {
-    /*
-    background-color: rgb(250, 250, 250);
-    border: 1px solid rgb(200, 200, 200);
-    */
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+p code {
+    background-color: rgb(220, 220, 220);
+    /*border: 1px solid rgb(200, 200, 200);*/
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+li code {
+    background-color: rgb(220, 220, 220);
+    /*border: 1px solid rgb(200, 200, 200);*/
     padding-left: 4px;
     padding-right: 4px;
 }
