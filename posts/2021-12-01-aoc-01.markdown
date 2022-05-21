@@ -24,7 +24,7 @@ title: Advent Of Code in Haskell, Day 01
 
 Традиционно первый день является неким "Hello world" всего календаря, поэтому нам не составит решить эту проблему. Каждый день я буду писать две функции ```part1``` и ```part2```, которые должны решать первую и вторую часть задачи соответственно.
 
-```haskell
+```{.haskell}
 part1 :: String -> Int
 part1 = numberOfIncreases . map read . lines
   where
