@@ -39,7 +39,7 @@ html {
 }
 
 body {
-  font-size: 1.6rem;
+  font-size: 2rem;
   color: #000;
   font-family: -apple-system,BlinkMacSystemFont,Arial,sans-serif;
 }
@@ -85,6 +85,13 @@ article .header {
   font-size: 1.4rem;
   font-style: italic;
   color: #555;
+  float: left;
+  margin-bottom: 1em;
+}
+
+.info {
+  float: right;
+  font-size: 1.5rem;
 }
 
 .logo a {
