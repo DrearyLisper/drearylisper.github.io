@@ -1,5 +1,6 @@
 <article>
     <h1>Advent Of Code in Haskell, Day 01</h1>
+    <div class="disclaimer">
     <section class="header">
         Posted on December  1, 2021
         
@@ -9,6 +10,7 @@
             <a title="All pages tagged 'aoc'." href="../tags/aoc.html">aoc</a>, <a title="All pages tagged 'haskell'." href="../tags/haskell.html">haskell</a>
         
     </section>
+    </div>
     <section>
         <p><img style="text-align: center" src="../images/aoc-2021-day-01/aoc-logo.gif" /></p>
 <h2 id="day-1-sonar-sweep">Day 1: Sonar Sweep</h2>
