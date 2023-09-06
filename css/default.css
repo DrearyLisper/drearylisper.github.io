@@ -89,6 +89,10 @@ article .header {
   margin-bottom: 1em;
 }
 
+article .body {
+  display: block;
+}
+
 .info {
   float: right;
   font-size: 1.5rem;
