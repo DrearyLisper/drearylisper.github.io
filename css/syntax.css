@@ -25,8 +25,9 @@ pre.numberSource a.sourceLine::before
     color: #aaaaaa;
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {  }
+div.sourceCode { 
+  font-size: 0.8em;
+}
 @media screen {
 a.sourceLine::before { text-decoration: underline; }
 }
