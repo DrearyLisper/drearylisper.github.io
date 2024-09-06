@@ -37,30 +37,31 @@
     <section class="body">
         <p><img style="width: 100%; text-align: center" src="../images/aoc-2023/aoc-logo.gif" /></p>
 <h2 id="advent-of-code">Advent of Code</h2>
-<p>Очередной год прошел, а значит самое время начать решать <a href="https://adventofcode.com/2023">адвент оф код</a>. Скорей всего уже все знают, но я все равно напомню, что данный формат предполагает, что каждый день мы будем открывать новую задачу, приближая себя таким образом к рождеству и рождественским праздникам.</p>
-<p>Это уже третий год, когда я решаю задачки используя только <a href="https://ru.wikipedia.org/wiki/%D0%A4%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D0%BE%D0%BD%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B5_%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5">функциональные языки программирования</a>.</p>
+<p>Another year has passed, which means it’s time to start solving <a href="https://adventofcode.com/2023">Advent of Code</a> again. Probably everyone is already familiar with <strong>AoC</strong>, but let me still remind you that this site provides you with a new coding problem every day and by solving them gets us closer to the actual Christmas.</p>
+<p>This is third year when I use only <a href="https://en.wikipedia.org/wiki/Functional_programming">functional programming languages</a> to solve the AoC problems.</p>
 <ul>
-<li>2021 год был <a href="https://github.com/DrearyLisper/aoc-2021">годом Haskell</a></li>
-<li>2022 год был <a href="https://github.com/DrearyLisper/aoc-2022">годом OCaml</a></li>
-<li>И этот 2023 год будет <a href="https://github.com/DrearyLisper/aoc-2023">годом Clojure!</a></li>
+<li>2021 was <a href="https://github.com/DrearyLisper/aoc-2021">year of Haskell</a></li>
+<li>2022 was <a href="https://github.com/DrearyLisper/aoc-2022">year of OCaml</a></li>
+<li>And this 2023 year will be <a href="https://github.com/DrearyLisper/aoc-2023">year of Clojure!</a></li>
 </ul>
-<p>В этот раз в добавок к решениям я также планирую делать разбор задач, который будет автоматически публиковаться <a href="aoc-2023">онлайн</a>.</p>
-<p>Все это стало возможно благодаря возможностям Clojure и библиотеке <a href="https://clerk.vision/">Clerk</a> для него. В этом посте я расскажу чуть больше подробностей как это работает.</p>
+<p>This time additionally to solutions of the problems in GitHub, I am going to publish explanations which will be generated automatically <a href="aoc-2023">from code online</a>.</p>
+<p>All of it became possible with extensive capabilities of Clojure and <a href="https://clerk.vision/">Clerk library</a>. In this note I will share how online publishing works in details.</p>
 <!--more-->
 <h2 id="clojure">Clojure</h2>
-<p>Clojure это функциональный язык (и не только), использующий Lisp-о-подобный синтаксис. Это означает, что основные конструкции языка будут составлять S-выражения.</p>
-<p>Например, чтобы сложить несколько чисел используется следующее выражение.</p>
+<p>Clojure is a functional programming language (not exclusively) which has Lisp-like syntax. Which means that main statements and expressions will look like <a href="https://en.wikipedia.org/wiki/S-expression">S-expressions</a>.</p>
+<p>For example to add several numbers together you can use the following expression.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode clojure"><code class="sourceCode clojure"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>(<span class="kw">+</span> <span class="dv">1</span> <span class="dv">2</span> <span class="dv">3</span>)</span></code></pre></div>
-<p>Плюсы данного синтаксиса не так очевидны с первого взгляда, но если копать глубже, то можно понять что это дает неограниченные возможности для мета-программирования. Если твой код описывается набором списков, а сам язык при этом сделан так, чтобы хорошо обрабатывать эти списки, то лучший сетап для мета-программирования и придумать сложно. Возможно я смогу рассказать больше деталей про это, но точно не в этот раз.</p>
-<p>Сам Clojure реализован и работает поверх JVM, сохраняя все плюсы и минусы использования Java. В плюсы можно записать очень богатую стандартную библиотеку, а в минусы всю остальную реализацию виртуальной машины (шутка).</p>
+<p>It may not be quite obvious why it’s beneficial, but if you would dig deeper you could see that this unblock endless possibilities for meta-programming. Your source code will look like bunch of s-expressions (which are essentially lists) and the language itself is designed to process lists efficiently and easily, hard to imagine a better setup for meta-programming (which is in general valid for all Lisp languages). We will probably cover meta-programming in Common Lisp or Clojure in the future (someday).</p>
+<p>The Clojure itself is implemented to work under JVM which brings all pros and cons of having Java runtime. To pros you can include very rich standard library, and to cons having JVM as a runtime (just joking).</p>
 <h2 id="clerk">Clerk</h2>
-<p><a href="https://clerk.vision/">Clerk</a> это библиотека написанная для Clojure, которая может трансформировать файлы с кодом в jupyter-like ноутбуки, которые можно просматривать из браузера.</p>
-<p>В отличии от jupyter эти ноутбуки нельзя менять через браузер напрямую, только через редактор кода. Но смысл очень схожий, можно открыть на втором мониторе браузер и Clerk будет отслеживать измененные участки кода и обновлять только необходимые части, которые зависят от этих изменений, обновляя при этом страничку автоматически.</p>
+<p><a href="https://clerk.vision/">Clerk</a> is Clojure library which allows you to generate jupyter-like notebooks viewable through the web browser.</p>
+<p>The main difference with jupyter is that source code is not supposed to be changed through the browser itself, only through your editor/IDE. But the idea is very similar, to get similar experience as in jupyter you can open browser next to your editor and see all the changes applied there online (using watchdog capabilities of Clerk). Moreover Clerk will be tracking which parts of the code were changed and not recomputing unchanged parts to save you compute time.</p>
 <h2 id="advent-of-code-1">Advent Of Code</h2>
-<p>Данная комбинация богатого языка и визуализации решений идеально подходит для таким мини-проектов как Advent Of Code.</p>
-<p>Дело только за тем как все настроить и автоматизировать для публикации на <a href="https://pages.github.com/">GitHub pages</a>. Основная идея была подсмотрена у <a href="https://github.com/elken">Elken</a>, запишем кудос ему за это.</p>
-<p>Первое что нужно сделать это непосредственно разметить код. В качестве примера можно посмотреть на решение <a href="https://github.com/DrearyLisper/aoc-2023/blob/master/01/day01.clj">первой задачи</a>.</p>
-<p>Clerk позволяет добавлять Markdown разметку в комментариях напрямую, что я использую для добавление любого текста, комментирующего происходящее.</p>
+<p>This combination of incredibly rich language and efficient visualization fits format of Advent of Code very well.</p>
+<p>The biggest deal will be to setup auto-publishing of generated notebooks to <a href="https://pages.github.com/">GitHub pages</a>. The main implementation was inspired by <a href="https://github.com/elken">Elken’s</a> approach to do that for previous Advent of Codes, kudos to him!</p>
+<p>The first thing we need to do before publishing is to annotate the source code.
+Please take a look to the solution of the <a href="https://github.com/DrearyLisper/aoc-2023/blob/master/01/day01.clj">first day</a> as an example.</p>
+<p>Clerk allows you to use Markdown directly in the annotations, which I use to add comments explaining the solution itself.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode clojure"><code class="sourceCode clojure"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">;; #### Solution</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">;; Helper function which we will be using for testing solutions on different input files.</span></span>
@@ -68,11 +69,11 @@
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>(<span class="bu">defn</span><span class="fu"> solve-with </span>[filename solution]</span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  (<span class="kw">with-open</span> [rdr (io/reader filename)]</span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    (solution (<span class="kw">line-seq</span> rdr))))</span></code></pre></div>
-<p>А также через специальные аннотации позволяет выбирать нужно ли включать сам код или вывод работы кода в HTML-страничку.</p>
-<p>После того как весь код размечен нужно скомпилировать все файлы в финальный ноутбук. Это проще всего делается через alias внутри файла сборки <a href="https://github.com/DrearyLisper/aoc-2023/blob/master/deps.edn">deps.edn</a>. Данный alias будет запускать компилятор ноутбуков из Clerk, сохраняя все выходные файлы в директории public.</p>
-<p>Дело остается за малым, перенести вызов сборки на сторону GitHub, где на каждый новый коммит будет запускаться сборка и публикация новой версии на GitHub pages. Все это делается через <a href="https://github.com/DrearyLisper/aoc-2023/blob/master/.github/workflows/deploy.yml">yml конфигурацию сборки</a>.</p>
-<p>Все это в сумме дает мне всегда актуальную версию на сайте <a href="https://drearylisper.github.io/aoc-2023/">Advent Of Code 2023</a>. Isn’t it cool?</p>
-<p>Надеюсь это было полезно и не очень нудно, как всегда полный код решения всех задач можно будет найти у меня в <a href="https://github.com/DrearyLisper/aoc-2023">GitHub</a>.</p>
+<p>Also through the <strong>visibility</strong> annotations you can specify which blocks of code (and their output) should be visible or hidden in the generated notebook.</p>
+<p>After we added all required annotations to the solution file we will need to compile everything into the final notebook. The easiest way to do that is to define alias inside of <a href="https://github.com/DrearyLisper/aoc-2023/blob/master/deps.edn">deps.edn</a>. This alias will be initiating compilation of all specified notebooks saving all output files into <strong>public</strong> directory.</p>
+<p>Now we create a building hook inside of GitHub to re-generate and publish all notebooks to GitHub pages on every commit we do. All of it can be done with <a href="https://github.com/DrearyLisper/aoc-2023/blob/master/.github/workflows/deploy.yml">yml configuration of the build</a>.</p>
+<p>In the end all of it gives us always fresh and actual solutions of <a href="https://drearylisper.github.io/aoc-2023/">Advent Of Code 2023</a> (with explanations!). Isn’t it cool?</p>
+<p>Hope it was interesting and useful to you, as always you can find solutions of all AoC 2023 problems inside of my repository on the <a href="https://github.com/DrearyLisper/aoc-2023">GitHub</a>.</p>
     </section>
 </article>
 
