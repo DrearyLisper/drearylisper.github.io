@@ -1,5 +1,5 @@
 <article>
-    <h1>Случайные мысли о наличие блога</h1>
+    <h1>Random thoughts on having a blog</h1>
     <section class="header">
         Posted on September  1, 2023
         
@@ -11,8 +11,8 @@
     </section>
     <br />
     <section class="body">
-        <p>Изначально я хотел использовать этот блог, чтобы писать о чем-то техническом и потенциально интересном узкому кругу разработчиков. Алгоритмы, структуры данных, решение задачек и т.д. и т.п.
-И тут идет последовательность предложений, начинающихся со слова <strong>Но</strong>.</p>
+        <p>Originally I wanted to use this blog to write about some really technical things which are potentially interesting to only small group of people. Algorithms, data structures, programming languages, compilers, etc.
+I haven’t been very productive recently, so now it is a good time for a few sentences which start with word <strong>Unfortunately</strong>.</p>
 
     </section>
     <a href="../posts/2023-09-01-random-notes.html">Read further...</a>

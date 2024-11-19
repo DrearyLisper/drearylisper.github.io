@@ -1,17 +1,17 @@
 ---
-title: Случайные мысли о наличие блога
+title: Random thoughts on having a blog
 tags: random
 ---
 
-Изначально я хотел использовать этот блог, чтобы писать о чем-то техническом и потенциально интересном узкому кругу разработчиков. Алгоритмы, структуры данных, решение задачек и т.д. и т.п.
-И тут идет последовательность предложений, начинающихся со слова **Но**.
+Originally I wanted to use this blog to write about some really technical things which are potentially interesting to only small group of people. Algorithms, data structures, programming languages, compilers, etc.
+I haven't been very productive recently, so now it is a good time for a few sentences which start with word **Unfortunately**.
 
 <!--more-->
 
-**Но** каждый раз садясь за написание статьи, я понимаю что на нее уходит слишком много времени, столько сколько я себе не могу позволить тратить на регулярной основе.
+**Unfortunately** every time when I start working on an article, I understand that it probably will be taking time which I won't be able to afford spending on a regular basis.
 
-**Но** при этом мне не хочется понижать уровень качества статей и публиковать их до того как я подсчитаю их достойными.
+**Unfortunately** I don't want to lower the quality of my posts and publish them before I feel that they are ready to be seen.
 
-**Но** в итоге это приводит к тому, что все мои идеи навсегда остаются в состоянии черновика и никогда не публикуются. 
+**Unfortunately** it brings me to the point that all my thoughts and ideas are staying in the draft state and never see the light.
 
-Что с этим делать непонятно, хочется чем-то делиться с миром и при этом не страдать от перфекционизма.
+For now I have no idea what should I do with it. It would be great to publish my thoughts more regularly and don't feel the burden of being not perfect at the same time.
