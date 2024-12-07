@@ -1,0 +1,39 @@
+---
+title: Advent Of Code 2024
+tags: aoc, compilers, haskell, 2024
+---
+
+It's this time of the year again. Time when you distract yourself from all the pressure of being old by solving [Advent Of Code](https://adventofcode.com/2024) in the most weird way possible.
+
+
+<!--more-->
+
+<img style="width: 100%; text-align: center" src="/images/aoc-2023/aoc-logo.gif"/>
+
+
+In the previous years I've been using existing functional programming languages (such as Haskell, Ocaml, Clojure) to solve all the problems (with various level of success). Usually it's been a good challenge on its own, but this year I want to go even deeper. 
+
+But how you can go even deeper than solving 25 problems in Haskell? Well, we design our own **programming language** and implement **compiler** for it of course!
+
+The final language should be decent enough and capable of solving all **AoC** prolems. It means that we need at least:
+
+* Conditions
+* Loops
+* Functions
+* Data Structures
+* Primitive IO
+
+Knowing which kind of problems we probably going to tackle (from last years) it would be great if we also have:
+
+* Native support of regular expressions
+* Native support of hash maps
+* Higher-order functions and pipelining
+
+These last three will make our life easier, but at this point it's hard to estimate how hard it will be to implement them.
+
+## Interpreter or compiler?
+
+There are several ways how you can usually implement the programming language: interpret the code on the fly using host programming language or compile code into intermediate representation (x86, LLVM IR, bytecode, etc) which in the end is executed directly on physical or virtual machine.
+
+The main pros of interpreter is agility and ability to re-use existing standart library of the host language. It's very tempting option overall. The main downside going this way is mediocre performance. I remember how I had to wait 20 mins for some of my Haskell solutions in the past, there is high chance that I would need to pivot **interpreter** path very late in the **AoC** which will be a disaster for me.
+
