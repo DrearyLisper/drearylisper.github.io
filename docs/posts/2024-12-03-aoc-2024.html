@@ -35,29 +35,29 @@
     </section>
     <br />
     <section class="body">
-        <p>It’s this time of the year again. Time when you distract yourself from all the pressure of being old by solving <a href="https://adventofcode.com/2024">Advent Of Code</a> in the most weird way possible.</p>
+        <p>As the year winds down, it’s time to refocus on some festive fun. Every December, the <a href="https://adventofcode.com/2024">Advent of Code</a> challenge presents itself as an opportunity to take a break from daily responsibilities and explore coding in an entertaining way.</p>
+<p>In previous years, I’ve taken on the challenge of solving all the problems using existing functional programming languages like Haskell, Ocaml, and Clojure - with varying degrees of success. While it’s always been a fun and rewarding experience, this year I wanted to push myself even further.</p>
 <!--more-->
-<p><img style="width: 100%; text-align: center" src="../images/aoc-2023/aoc-logo.gif" /></p>
-<p>In the previous years I’ve been using existing functional programming languages (such as Haskell, Ocaml, Clojure) to solve all the problems (with various level of success). Usually it’s been a good challenge on its own, but this year I want to go even deeper.</p>
-<p>But how you can go even deeper than solving 25 problems in Haskell? Well, we design our own <strong>programming language</strong> and implement <strong>compiler</strong> for it of course!</p>
-<p>The final language should be decent enough and capable of solving all <strong>AoC</strong> prolems. It means that we need at least:</p>
+<p>So, how do you take it to the next level after tackling 25 problems in Haskell? The answer is simple: by designing my own <strong>programming language</strong> from scratch and implementing a <strong>compiler</strong> for it!</p>
+<p>Our goal is to create a language that can solve all Advent of Code problems. To achieve this, we need to implement the following basic features:</p>
 <ul>
-<li>Conditions</li>
+<li>Conditional statements</li>
 <li>Loops</li>
 <li>Functions</li>
-<li>Data Structures</li>
-<li>Primitive IO</li>
+<li>Data structures</li>
+<li>Basic input/output operations</li>
 </ul>
-<p>Knowing which kind of problems we probably going to tackle (from last years) it would be great if we also have:</p>
+<p>Based on previous years’ problems, it would be beneficial to also include:</p>
 <ul>
-<li>Native support of regular expressions</li>
-<li>Native support of hash maps</li>
-<li>Higher-order functions and pipelining</li>
+<li>Built-in regular expression support</li>
+<li>Native hash map support</li>
+<li>Higher-order functions and function pipelining</li>
 </ul>
 <p>These last three will make our life easier, but at this point it’s hard to estimate how hard it will be to implement them.</p>
 <h2 id="interpreter-or-compiler">Interpreter or compiler?</h2>
-<p>There are several ways how you can usually implement the programming language: interpret the code on the fly using host programming language or compile code into intermediate representation (x86, LLVM IR, bytecode, etc) which in the end is executed directly on physical or virtual machine.</p>
-<p>The main pros of interpreter is agility and ability to re-use existing standart library of the host language. It’s very tempting option overall. The main downside going this way is mediocre performance. I remember how I had to wait 20 mins for some of my Haskell solutions in the past, there is high chance that I would need to pivot <strong>interpreter</strong> path very late in the <strong>AoC</strong> which will be a disaster for me.</p>
+<p>There are several ways to implement a programming language. One approach is to interpret the code on the fly using a host programming language. Alternatively, we can compile the code into an intermediate representation, such as x86 assembly, LLVM IR, or bytecode, which can then be executed directly on a physical or virtual machine.</p>
+<p>The main advantage of an interpreter is its agility and the ability to reuse existing standard libraries of the host language. This option is quite tempting overall. However, there is a significant downside: mediocre performance. I recall having to wait 20 minutes for some of my Haskell solutions in the past. There is a high chance that I will need to pivot from an interpreter approach very late in the <strong>AoC</strong>, which would be disastrous for me.</p>
+<p>On the other hand, compiling the code shouldn’t be</p>
     </section>
 </article>
 
