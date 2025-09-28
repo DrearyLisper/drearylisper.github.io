@@ -6,7 +6,7 @@
     </section>
     <section class="info">
         
-            <a title="All pages tagged 'aoc'." href="../tags/aoc.html">aoc</a>, <a title="All pages tagged 'haskell'." href="../tags/haskell.html">haskell</a>
+            <a title="All pages tagged 'aoc'." href="../tags/aoc.html" rel="tag">aoc</a>, <a title="All pages tagged 'haskell'." href="../tags/haskell.html" rel="tag">haskell</a>
         
     </section>
     <br />
