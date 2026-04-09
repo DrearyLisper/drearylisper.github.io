@@ -77,4 +77,4 @@ postCtx =
     defaultContext
 
 postCtxWithTags :: Tags -> Context String
-postCtxWithTags tags = tagsField "tags" tags `mappend` postCtx
+postCtxWithTags tags = tagsFieldWith getTags simpleRenderLink mconcat "tags" tags `mappend` postCtx
