@@ -1,19 +1,9 @@
-<article>
-    <h1>$title$</h1>
-    <section class="header">
-        Posted on $date$
-        $if(author)$
-            by $author$
-        $endif$
-    </section>
-    <section class="info">
-        $if(tags)$
-            $tags$
-        $endif$
-    </section>
-    <br/>
-    <section class="body">
-        $teaser$
-    </section>
-    <a href="$url$.html">Read further...</a>
+<article class="teaser">
+  <h2><a href="$url$.html">$title$</a></h2>
+  <div class="post-meta">
+    <time>$date$</time>
+    $if(tags)$
+    <div class="tags">$tags$</div>
+    $endif$
+  </div>
 </article>
