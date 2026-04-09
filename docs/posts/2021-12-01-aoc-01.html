@@ -1,48 +1,37 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-    <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<meta charset="utf-8">
-	<meta http-equiv="x-ua-compatible" content="ie=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dreary Blog — Advent Of Code in Haskell</title>
+    <link rel="stylesheet" href="../css/default.css">
+    <link rel="stylesheet" href="../css/syntax.css">
+  </head>
+  <body>
+    <header>
+      <div>
+        <a class="logo" href="../">Dreary Blog</a>
+      </div>
+    </header>
 
-        <title>Dreary Blog - Advent Of Code in Haskell, Day 01</title>
-        <link rel="stylesheet" type="text/css" href="../css/default.css" />
-        <link rel="stylesheet" type="text/css" href="../css/syntax.css" />
-    </head>
-    <body>
-        <header>
-            <div class="logo">
-                <a href="../">Dreary Blog</a>
-            </div>
-            <nav>
-                <a href="../">Home</a>
-           </nav>
-        </header>
-
-        <main role="main">
-            <h1>Advent Of Code in Haskell, Day 01</h1>
-            <article>
-    <section class="header">
-        Posted on December  1, 2021
-        
-    </section>
-    <section class="info">
-        
-            <a title="All pages tagged 'aoc'." href="../tags/aoc.html" rel="tag">aoc</a>, <a title="All pages tagged 'haskell'." href="../tags/haskell.html" rel="tag">haskell</a>
-        
-    </section>
-    <br />
-    <section class="body">
-        <p><img style="text-align: center" src="../images/aoc-2021-day-01/aoc-logo.gif" /></p>
+    <main>
+      <div class="wrapper">
+        <h1>Advent Of Code in Haskell</h1>
+        <article>
+  <div class="post-meta">
+    <time>December  1, 2021</time>
+    
+    <div class="tags"><a title="All pages tagged 'aoc'." href="../tags/aoc.html" rel="tag">aoc</a><a title="All pages tagged 'haskell'." href="../tags/haskell.html" rel="tag">haskell</a></div>
+    
+  </div>
+  <p><img style="text-align: center" src="../images/aoc-2021-day-01/aoc-logo.gif" /></p>
 <h2 id="day-1-sonar-sweep">Day 1: Sonar Sweep</h2>
-<p>Как и в прошлые года <a href="https://twitter.com/ericwastl">Eric Wastl</a> решил побаловать нас своими задачками в виде <a href="https://adventofcode.com/2021">адвент календаря</a>. Данный формат предполагает, что каждый день мы будем открывать новую задачу, приближая себя таким образом к рождеству и рождественским праздникам.</p>
+<p>As in previous years, <a href="https://twitter.com/ericwastl">Eric Wastl</a> has decided to treat us with his puzzles in the form of an <a href="https://adventofcode.com/2021">advent calendar</a>. The format works such that every day we open a new puzzle, bringing ourselves closer to Christmas and the holiday season.</p>
 <p><img style="text-align: center" src="../images/aoc-2021-day-01/01.png" /></p>
-<p>В этом году сигнал тревоги застал нас врасплох, пока мы спокойно плыли на корабле на рождественские праздники. Кажется кто-то из эльфов поскользнулся и отправил ключи от рождественской упряжки прямо на дно океана! Прежде чем ты осознал что происходит, эльфы уже подготовили субмарину, где ты как-то между делом и оказался. Наша субмарина покрыта рождественской подсветкой (потому что это рождественская субмарина), а также она имеет антенну, способную найти потерянные ключи, но только при условии если мы сможем получить 50 звездочек. Чтобы спасти рождество нам нужно получить эти звездочки до 25-го декабря!</p>
+<p>This year the alarm caught us off guard while we were peacefully sailing on a ship to the Christmas holidays. It seems one of the elves slipped and sent the keys to Santa’s sleigh straight to the bottom of the ocean! Before you even realized what was happening, the elves had already prepared a submarine, and you somehow ended up inside it. Our submarine is covered in Christmas lights (because it’s a Christmas submarine), and it has an antenna capable of finding the lost keys — but only if we manage to collect 50 stars. To save Christmas we need to get those stars before December 25th!</p>
 <!--more-->
-<p>Каждый день AoC содержит задачу, разбитую на две части. За правильное решение каждой части нам дают по одной звездочке.</p>
-<p>Спускаясь на субмарине мы видим результат сканирования дна. Результатом сканирования является карта высот.</p>
+<p>Each day of AoC contains a puzzle split into two parts. For correctly solving each part we are awarded one star.</p>
+<p>As we descend in the submarine we see the result of a sonar scan of the ocean floor. The scan produces a depth map.</p>
 <pre class="aoc"><code>For example, suppose you had the following report:
 
 199
@@ -55,7 +44,7 @@
 269
 260
 263</code></pre>
-<p>Чтобы быть более уверенными в успешности спуска, мы хотим знать как быстро меняется глубина впереди нас. Количество раз когда следующая считанная глубина была больше, чем предыдущая могло быть дать нам полезную информацию об этом.</p>
+<p>To be more confident about a safe descent, we want to know how quickly the depth ahead of us is changing. The number of times the next measured depth is greater than the previous one could give us useful information about this.</p>
 <pre class="aoc"><code>199 (N/A - no previous measurement)
 200 (increased)
 208 (increased)
@@ -66,7 +55,7 @@
 269 (increased)
 260 (decreased)
 263 (increased)</code></pre>
-<p>Традиционно первый день является неким “Hello world” всего календаря, поэтому нам не составит решить эту проблему. Каждый день я буду писать две функции <code>part1</code> и <code>part2</code>, которые должны решать первую и вторую часть задачи соответственно.</p>
+<p>Traditionally the first day is something of a “Hello world” for the whole calendar, so solving this problem won’t give us much trouble. Each day I’ll be writing two functions <code>part1</code> and <code>part2</code> that are supposed to solve the first and second parts of the puzzle respectively.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ot">part1 ::</span> <span class="dt">String</span> <span class="ot">-&gt;</span> <span class="dt">Int</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>part1 <span class="ot">=</span> numberOfIncreases <span class="op">.</span> <span class="fu">map</span> <span class="fu">read</span> <span class="op">.</span> <span class="fu">lines</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">where</span></span>
@@ -74,16 +63,16 @@
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    numberOfIncreases xs <span class="op">|</span> <span class="fu">length</span> xs <span class="op">&lt;</span> <span class="dv">2</span> <span class="ot">=</span> <span class="dv">0</span></span>
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>                         <span class="op">|</span> <span class="fu">head</span> xs <span class="op">&lt;</span> <span class="fu">head</span> (<span class="fu">tail</span> xs) <span class="ot">=</span> <span class="dv">1</span> <span class="op">+</span> numberOfIncreases (<span class="fu">tail</span> xs)</span>
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>                         <span class="op">|</span> <span class="fu">otherwise</span> <span class="ot">=</span> numberOfIncreases (<span class="fu">tail</span> xs)</span></code></pre></div>
-<p>Функция <code class="sourceCode haskell">numberOfIncreases</code> подсчитывает количество увеличений во входном списке. Она разбирает 3 случая:</p>
+<p>The function <code class="sourceCode haskell">numberOfIncreases</code> counts the number of increases in the input list. It handles 3 cases:</p>
 <ul>
-<li><code class="sourceCode haskell"><span class="fu">length</span> xs <span class="op">&lt;</span> <span class="dv">2</span></code> – входной массив слишком мал, чтобы сравнить два элемента, поэтому нужно вернуть 0</li>
-<li><code class="sourceCode haskell"><span class="fu">head</span> xs <span class="op">&lt;</span> <span class="fu">head</span> (<span class="fu">tail</span> xs)</code> – первый элемент меньше чем второй элемент, добавляем 1 к результату и рекурсивно проверяем хвост списка</li>
-<li><code class="sourceCode haskell"><span class="fu">otherwise</span></code> – пропускаем первый элемент без увеличения результата</li>
+<li><code class="sourceCode haskell"><span class="fu">length</span> xs <span class="op">&lt;</span> <span class="dv">2</span></code> – the input list is too short to compare two elements, so return 0</li>
+<li><code class="sourceCode haskell"><span class="fu">head</span> xs <span class="op">&lt;</span> <span class="fu">head</span> (<span class="fu">tail</span> xs)</code> – the first element is less than the second element, add 1 to the result and recursively check the tail of the list</li>
+<li><code class="sourceCode haskell"><span class="fu">otherwise</span></code> – skip the first element without incrementing the result</li>
 </ul>
-<p>Функция <code class="sourceCode haskell">part1</code> разбивает входной файл на строчки с помощью функции <code class="sourceCode haskell"><span class="fu">lines</span></code>, конвертирует их в числа через вызов <code class="sourceCode haskell"><span class="fu">read</span></code> и передает все на вход <code class="sourceCode haskell">numberOfIncreases</code>. Рассчитываем результат отправляем и получаем первую звезду за сегодня!</p>
+<p>The function <code class="sourceCode haskell">part1</code> splits the input file into lines using <code class="sourceCode haskell"><span class="fu">lines</span></code>, converts them to numbers via <code class="sourceCode haskell"><span class="fu">read</span></code>, and passes everything into <code class="sourceCode haskell">numberOfIncreases</code>. We compute the result, submit it, and collect the first star of the day!</p>
 <p><img style="text-align: center" src="../images/aoc-2021-day-01/05.png" /></p>
-<p>После решения первой задаче в Advent Of Code открывается вторая, которая обычно основана на первой, на при этом должна быть чуть сложней.</p>
-<p>Во второй части теперь нужно рассматривать серию из трех элементов как один элемент и считать разницу между их суммами.</p>
+<p>After solving the first part in Advent Of Code the second one unlocks, which is typically built on top of the first but is meant to be a bit harder.</p>
+<p>In the second part we now need to treat a sliding window of three elements as a single element and count the differences between their sums.</p>
 <pre class="aoc"><code>In the above example, the sum of each three-measurement window is as follows:
 
 A: 607 (N/A - no previous sum)
@@ -94,7 +83,7 @@ E: 647 (increased)
 F: 716 (increased)
 G: 769 (increased)
 H: 792 (increased)</code></pre>
-<p>Мы легко можем адаптировать решение первой задачи для второй. Вместо одного элемента мы будем брать <code class="sourceCode haskell"><span class="fu">take</span> <span class="dv">3</span></code> элементов и суммировать их с помощью <code class="sourceCode haskell"><span class="fu">sum</span></code>. Вся остальная логика остается похожей.</p>
+<p>We can easily adapt the solution from part one for part two. Instead of a single element we now take <code class="sourceCode haskell"><span class="fu">take</span> <span class="dv">3</span></code> elements and sum them with <code class="sourceCode haskell"><span class="fu">sum</span></code>. All the remaining logic stays the same.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ot">part2 ::</span> <span class="dt">String</span> <span class="ot">-&gt;</span> <span class="dt">Int</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>part2 <span class="ot">=</span> numberOfIncreases <span class="op">.</span> <span class="fu">map</span> <span class="fu">read</span> <span class="op">.</span><span class="fu">lines</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">where</span></span>
@@ -102,17 +91,18 @@ H: 792 (increased)</code></pre>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    numberOfIncreases xs <span class="op">|</span> <span class="fu">length</span> xs <span class="op">&lt;</span> <span class="dv">4</span> <span class="ot">=</span> <span class="dv">0</span></span>
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>                         <span class="op">|</span> <span class="fu">sum</span> (<span class="fu">take</span> <span class="dv">3</span> xs) <span class="op">&lt;</span> <span class="fu">sum</span> (<span class="fu">take</span> <span class="dv">3</span> <span class="op">$</span> <span class="fu">tail</span> xs) <span class="ot">=</span> <span class="dv">1</span> <span class="op">+</span> numberOfIncreases (<span class="fu">tail</span> xs)</span>
 <span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>                         <span class="op">|</span> <span class="fu">otherwise</span> <span class="ot">=</span> numberOfIncreases (<span class="fu">tail</span> xs)</span></code></pre></div>
-<p>Отправляем на проверку и получаем заслуженную вторую звезду.</p>
+<p>We submit it and earn the well-deserved second star.</p>
 <p><img style="text-align: center" src="../images/aoc-2021-day-01/07.png" /></p>
-<p>Полный код решения это задачи можно найти у меня в <a href="https://github.com/DrearyLisper/aoc-2021">GitHub</a>, а теперь время отпраздновать победу над первой задачей (не самой сложной, но все же).</p>
-    </section>
+<p>The full solution code can be found on my <a href="https://github.com/DrearyLisper/aoc-2021">GitHub</a>, and now it’s time to celebrate the victory over the first puzzle — not the hardest one, but still.</p>
 </article>
 
-        </main>
+      </div>
+    </main>
 
-        <footer>
-            Site proudly generated by
-            <a href="http://jaspervdj.be/hakyll">Hakyll</a>
-        </footer>
-    </body>
+    <footer>
+      <div>
+        Generated by <a href="https://jaspervdj.be/hakyll">Hakyll</a>
+      </div>
+    </footer>
+  </body>
 </html>

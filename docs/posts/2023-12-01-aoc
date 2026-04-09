@@ -1,28 +1,9 @@
-<article>
-    <h1>Advent Of Code in Clojure</h1>
-    <section class="header">
-        Posted on December  1, 2023
-        
-    </section>
-    <section class="info">
-        
-            <a title="All pages tagged 'aoc'." href="../tags/aoc.html" rel="tag">aoc</a>, <a title="All pages tagged 'clojure'." href="../tags/clojure.html" rel="tag">clojure</a>
-        
-    </section>
-    <br />
-    <section class="body">
-        <p><img style="width: 100%; text-align: center" src="../images/aoc-2023/aoc-logo.gif" /></p>
-<h2 id="advent-of-code">Advent of Code</h2>
-<p>Another year has passed, which means it’s time to start solving <a href="https://adventofcode.com/2023">Advent of Code</a> again. Probably everyone is already familiar with <strong>AoC</strong>, but let me still remind you that this site provides you with a new coding problem every day and by solving them gets us closer to the actual Christmas.</p>
-<p>This is third year when I use only <a href="https://en.wikipedia.org/wiki/Functional_programming">functional programming languages</a> to solve the AoC problems.</p>
-<ul>
-<li>2021 was <a href="https://github.com/DrearyLisper/aoc-2021">year of Haskell</a></li>
-<li>2022 was <a href="https://github.com/DrearyLisper/aoc-2022">year of OCaml</a></li>
-<li>And this 2023 year will be <a href="https://github.com/DrearyLisper/aoc-2023">year of Clojure!</a></li>
-</ul>
-<p>This time additionally to solutions of the problems in GitHub, I am going to publish explanations which will be generated automatically <a href="aoc-2023">from code online</a>.</p>
-<p>All of it became possible with extensive capabilities of Clojure and <a href="https://clerk.vision/">Clerk library</a>. In this note I will share how online publishing works in details.</p>
-
-    </section>
-    <a href="../posts/2023-12-01-aoc.html">Read further...</a>
+<article class="teaser">
+  <h2><a href="../posts/2023-12-01-aoc.html">Advent Of Code in Clojure</a></h2>
+  <div class="post-meta">
+    <time>December  1, 2023</time>
+    
+    <div class="tags"><a title="All pages tagged 'aoc'." href="../tags/aoc.html" rel="tag">aoc</a><a title="All pages tagged 'clojure'." href="../tags/clojure.html" rel="tag">clojure</a></div>
+    
+  </div>
 </article>
